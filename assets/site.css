@@ -246,3 +246,24 @@ body {
   line-height: 1.2em;
 }
 
+.main ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  
+}
+
+.main ul.top-info {
+  background-color: transparent;
+  justify-content: space-between;
+}
+
+.main li {
+  min-width: 30%;
+  display: block;
+  height: 100px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  background-color: pink;
+  vertical-align: middle;
+}

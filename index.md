@@ -1,6 +1,7 @@
 ---
 title: Karin Dalziel @ nirak.net
 layout: layout.njk
+slug: home
 ---
 
 # Karin Dalziel
