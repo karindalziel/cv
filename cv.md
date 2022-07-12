@@ -53,7 +53,7 @@ Presentations include topics such as web development, web design, and digital hu
 
 :::
 
-#### Projects
+#### Projects {:.projects-head}
 
 - Framework Research: Identified need to replace aging web framework that many CDRH projects use, organized a series of research sprints to identify the best replacement, led the design of new software ([CDRH-Orchid](https://github.com/CDRH/orchid)), and implemented migration for several sites. 
 - CDRH Combined Schema/API Project: In conjunction with the above, developed a new process for transforming and displaying Center TEI and other data in a unified manner ([CDRH-Datura](https://github.com/CDRH/datura)). Developed a metadata schema to use across projects. Developed process to turn this infrastructure into an [API](https://github.com/CDRH/api) that can serve data to several contexts.
@@ -117,7 +117,7 @@ Presentations include topics such as web development, web design, and digital hu
 {:.grouplist}
 :::
 
-::: publicaions
+::: publications
 ## Selected Publications
 
 - Opitz, Rachel; Richards-Rissetto, Heather; Dalziel, Karin; Dussault, Jessica; and Tunink, Greg. "Affording Archaeological Data Reinterpretation: Exploring 3D Data Reuse & Repurposing through Procedural Modeling," in _Critical Archaeology in the Digital Age_ edited by K. Garstki (Cotsen Institute of Archaeology Press Los Angeles, California, Forthcoming).
