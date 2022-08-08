@@ -1,8 +1,3 @@
----
-title: Karin Dalziel C.V.
-layout: layout.njk
----
-
 # Karin Dalziel
 
 - [nirak.net](https://nirak.net)

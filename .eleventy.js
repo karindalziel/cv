@@ -1,30 +1,24 @@
-
-
 const markdownIt = require("markdown-it");
 const markdownItContainer = require("markdown-it-container");
-
 const markdownItAttrs = require('markdown-it-attrs');
-
 const fs = require("fs-extra");
 const sass = require("sass");
 const postcss = require("postcss");
 const autoprefixer = require("autoprefixer");
-
-//const pluginSass = require("eleventy-plugin-sass");
-
-// Markdown packages: https://www.npmjs.com/search?q=keywords%3Amarkdown-it-plugin&page=1&perPage=20
-
+const { EleventyRenderPlugin } = require("@11ty/eleventy");
 
 module.exports = (function(eleventyConfig) {
 
+  eleventyConfig.addPlugin(EleventyRenderPlugin);
+
   // Define Markdown-it lib; allow code indentation by not parsing indention as code elements
-  let markdownLibrary = markdownIt({ // docs: https://www.npmjs.com/package/markdown-it
+  let markdownLibrary = markdownIt({
     html: true,
     typographer: true,
   }).disable('code')
   
   // Markdown-it container plugin
-  .use( require('markdown-it-container'), '', { // Can add wrapping containers with IDs and Classes, and nest them - docs: https://github.com/markdown-it/markdown-it-container - and some help via: https://ryan.thaut.me/blog/2020/04/25/flirting-with-eleventy-11ty/
+  .use( require('markdown-it-container'), '', {
     validate: () => true,
     render: (tokens, idx) => {
         if (tokens[idx].nesting === 1) {
@@ -42,56 +36,44 @@ module.exports = (function(eleventyConfig) {
     allowedAttributes: []  // empty array = all attributes are allowed
   });
 
-
   eleventyConfig.setLibrary("md", markdownLibrary);
-
-
-
-
-  // eleventyConfig.addPlugin(pluginSass, sassPluginOptions);
-
-
-  // eleventyConfig.addWatchTarget('_site/assets/*.css');
-
-  // eleventyConfig.setBrowserSyncConfig({
-  //   files: ['_site/assets/*.css']
-  // });
 
   eleventyConfig.addPassthroughCopy('assets')
   return {
     passthroughFileCopy: true
   }
 
+  eleventyConfig.setServerOptions({
+    // Default values are shown:
 
+    // Opt-out of the live reload snippet
+    enabled: true,
 
- // compile sass and optimize it https://www.d-hagemeier.com/en/articles/sass-compile-11ty/ 
- eleventyConfig.on("beforeBuild", () => {
-  // Compile Sass
-  let result = sass.renderSync({
-    file: "_sass/main.scss",
-    sourceMap: false,
-    outputStyle: "compressed",
-  });
-  console.log("SCSS compiled");
-// Optimize and write file with PostCSS
-let css = result.css.toString();
-postcss([autoprefixer])
-  .process(css, { from: "main.css", to: "css/main.css" })
-  .then((result) => {
-    fs.outputFile("_site/css/main.css", result.css, (err) => {
-      if (err) throw err;
-      console.log("CSS optimized");
-    });
+    // Opt-out of DOM diffing updates and use page reloads
+    domdiff: true,
+
+    // The starting port number to attempt to use
+    port: 8080,
+
+    // number of times to increment the port if in use
+    portReassignmentRetryCount: 10,
+
+    // Show local network IP addresses for device testing
+    showAllHosts: false,
+
+    // Use a local key/certificate to opt-in to local HTTP/2 with https
+    https: {
+      // key: "./localhost.key",
+      // cert: "./localhost.cert",
+    },
+
+    // Change the name of the special folder name used for injected scripts
+    folder: ".11ty",
+
+    // Show the server version number on the command line
+    showVersion: false,
+
+    // Change the default file encoding for reading/serving files
+    encoding: "utf-8",
   });
 });
-
-// trigger a rebuild if sass changes
-eleventyConfig.addWatchTarget("_sass/");
-
-
-  
-
-
-});
-
-

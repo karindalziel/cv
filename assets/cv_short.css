@@ -1,0 +1,14 @@
+html {
+  border-top: solid green 10px;
+}
+
+/* Short CV */
+
+.biography, 
+.job_description, 
+.projects-head,
+.achievement-list {
+  display: none;
+}
+
+.presentations li:nth-of-type(1n+7) {display: none;}

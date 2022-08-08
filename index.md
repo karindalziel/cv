@@ -17,8 +17,8 @@ layout: layout.njk
 ::: main_page
 ## CV
 
-- [Full CV](cv)
-<!-- - 2 Page CV -->
+- [Full CV](cv_long)
+- [Short CV](cv_short)
 
 ## Links
 

@@ -1,5 +1,5 @@
 ---
-title: My Rad Blog
+title: nirak.net
 ---
 
 <!doctype html>
@@ -13,6 +13,9 @@ title: My Rad Blog
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="/assets/site.css">
+    {% if page.url == '/cv_short/' %}
+      <link rel="stylesheet" href="/assets/cv_short.css">
+    {% endif %}
   </head>
   <body>
     <div class="main">

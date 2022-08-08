@@ -1,5 +1,16 @@
 @import "normalize.css";
 
+
+@page {
+  size:    A4 portrait;
+  margin: 20mm;
+  border-bottom: red solid 5px;
+}
+
+
+
+
+
 /* ======== */
 
 h4 + ul,
@@ -220,10 +231,6 @@ h3 {
   background-color: red;
 }
 
-/* =================
-Two pages
-================= */
-
 /* @media only print {}
 
 .biography {
@@ -246,14 +253,5 @@ body {
   line-height: 1.2em;
 }
 
-/* Short CV */
 
-.biography, 
-.job_description, 
-.projects-head,
-.achievement-list {
-  display: none;
-}
-
-.presentations li:nth-of-type(1n+7) {display: none;}
 
